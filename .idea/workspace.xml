@@ -21,7 +21,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e85c340b-5090-4526-a0e8-2cca8bf2b703" name="Changes" comment="" />
+    <list default="true" id="e85c340b-5090-4526-a0e8-2cca8bf2b703" name="Changes" comment="add config.yml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,8 +57,9 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/",
+    "last_opened_file_path": "D:/Afone/My Project/Submission Expert/Dicoding---Final-Submission-Menjadi-Android-Developer-Expert-main",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
@@ -70,6 +71,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Afone\My Project\Submission Expert\Dicoding---Final-Submission-Menjadi-Android-Developer-Expert-main" />
       <recent name="D:\Afone\My Project\Submission Expert\Dicoding---Final-Submission-Menjadi-Android-Developer-Expert-main\core\src\main\res\drawable" />
     </key>
   </component>
@@ -151,6 +153,23 @@
       <option name="presentableId" value="Default" />
       <updated>1709134909261</updated>
     </task>
+    <task id="LOCAL-00001" summary="add config.yml">
+      <option name="closed" value="true" />
+      <created>1709140325485</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709140325485</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add config.yml">
+      <option name="closed" value="true" />
+      <created>1709140965366</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709140965366</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -158,5 +177,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="add config.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="add config.yml" />
   </component>
 </project>
