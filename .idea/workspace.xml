@@ -21,7 +21,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e85c340b-5090-4526-a0e8-2cca8bf2b703" name="Changes" comment="add config.yml" />
+    <list default="true" id="e85c340b-5090-4526-a0e8-2cca8bf2b703" name="Changes" comment="edit unit test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +38,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -59,11 +62,11 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Afone/My Project/Submission Expert/Dicoding---Final-Submission-Menjadi-Android-Developer-Expert-main",
+    "last_opened_file_path": "D:/",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="PsdUISettings">
@@ -169,7 +172,39 @@
       <option name="project" value="LOCAL" />
       <updated>1709140965366</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add config.yml">
+      <option name="closed" value="true" />
+      <created>1709141017639</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709141017639</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add config.yml">
+      <option name="closed" value="true" />
+      <created>1709141376960</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709141376960</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add config.yml">
+      <option name="closed" value="true" />
+      <created>1709141450690</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709141450690</updated>
+    </task>
+    <task id="LOCAL-00006" summary="edit unit test">
+      <option name="closed" value="true" />
+      <created>1709142152774</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709142152774</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -178,6 +213,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="add config.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="add config.yml" />
+    <MESSAGE value="edit unit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit unit test" />
   </component>
 </project>

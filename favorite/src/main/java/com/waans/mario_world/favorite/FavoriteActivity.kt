@@ -1,12 +1,12 @@
 package com.waans.mario_world.favorite
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.waans.mario_world.core.ui.CharacterAdapter
 import com.waans.mario_world.core.utils.MediaPlayerManager
+import com.waans.mario_world.core.utils.SharedPreferencesManager
 import com.waans.mario_world.favorite.databinding.ActivityFavoriteBinding
 import com.waans.marioworld.ui.detail.DetailCharacterActivity
 import kotlinx.coroutines.delay
@@ -16,9 +16,9 @@ import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityFavoriteBinding
+    private lateinit var binding: ActivityFavoriteBinding
 
-    private lateinit var sharedPrefs: SharedPreferences
+    private lateinit var sharedPreferencesManager: SharedPreferencesManager
     private lateinit var bgSoundManager: MediaPlayerManager
 
     private val favoriteViewModel: FavoriteViewModel by viewModel()
@@ -30,14 +30,14 @@ class FavoriteActivity : AppCompatActivity() {
 
         loadKoinModules(favoriteModule)
 
-        sharedPrefs = getSharedPreferences("com.waans.marioworld", MODE_PRIVATE)
+        sharedPreferencesManager = SharedPreferencesManager(applicationContext)
         bgSoundManager = MediaPlayerManager(applicationContext)
 
         initView()
     }
 
-    private fun initView(){
-        with(binding){
+    private fun initView() {
+        with(binding) {
             btnBack.setOnClickListener {
                 onBackPressed()
             }
@@ -65,31 +65,29 @@ class FavoriteActivity : AppCompatActivity() {
         }
     }
 
-    private fun setSoundStatus(isChangeStatus: Boolean = false){
-        var currentStatus = sharedPrefs.getBoolean("isMute", false)
-        if(isChangeStatus) {
-            sharedPrefs.edit()
-                .putBoolean("isMute", !currentStatus)
-                .apply()
+    private fun setSoundStatus(isChangeStatus: Boolean = false) {
+        var currentStatus = sharedPreferencesManager.getIsMute()
+        if (isChangeStatus) {
+            sharedPreferencesManager.setIsMute(!currentStatus)
         }
 
-        currentStatus = sharedPrefs.getBoolean("isMute", false)
-        if(currentStatus){
+        currentStatus = sharedPreferencesManager.getIsMute()
+        if (currentStatus) {
             binding.btnSound.setImageResource(com.waans.mario_world.core.R.drawable.ic_volume_off)
-        }else{
+        } else {
             binding.btnSound.setImageResource(com.waans.mario_world.core.R.drawable.ic_volume_up)
         }
 
         isPlayBgSound()
     }
 
-    private fun isPlayBgSound(){
-        val isMute = sharedPrefs.getBoolean("isMute", false)
+    private fun isPlayBgSound() {
+        val isMute = sharedPreferencesManager.getIsMute()
 
-        if(!isMute) {
-            //set bg sound
+        if (!isMute) {
+            // set bg sound
             bgSoundManager.startSound(com.waans.mario_world.core.R.raw.bgm_super_mario_bos, true)
-        }else{
+        } else {
             bgSoundManager.stopSound()
         }
     }

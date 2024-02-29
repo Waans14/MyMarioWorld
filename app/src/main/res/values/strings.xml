@@ -16,4 +16,7 @@
     <string name="mario_onboarding_image">mario onboarding image</string>
     <string name="mario_title">mario title</string>
     <string name="afwan_sutdrajat">Afwan Sutdrajat</string>
+
+    <string name="power_connected">Power connected!</string>
+    <string name="power_disconnected">Power disconnected!</string>
 </resources>

@@ -8,6 +8,7 @@ import com.waans.mario_world.core.data.source.remote.RemoteDataSource
 import com.waans.mario_world.core.data.source.remote.network.ApiService
 import com.waans.mario_world.core.domain.repository.IMarioRepository
 import com.waans.mario_world.core.utils.AppExecutors
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -28,10 +29,17 @@ val databaseModule = module {
 
 val networkModule = module {
     single {
+        val hostname = "waans14.github.io"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostname, "sha256/qlJvUaRP4/Oodg/x84EZ52Ulu8y9eUHh++IjI8zJ2bc=")
+            .add(hostname, "sha256/RQeZkB42znUfsDIIFWIRiYEcKl7nHwNFwWCrnMMJbVc=")
+            .add(hostname, "sha256/r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=")
+            .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
     single {

@@ -1,12 +1,12 @@
 package com.waans.marioworld.ui.onboarding
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ncorti.slidetoact.SlideToActView
 import com.waans.mario_world.core.utils.MediaPlayerManager
+import com.waans.mario_world.core.utils.SharedPreferencesManager
 import com.waans.marioworld.databinding.ActivityOnboardingBinding
 import com.waans.marioworld.ui.main.MainActivity
 import kotlinx.coroutines.runBlocking
@@ -14,19 +14,17 @@ import kotlinx.coroutines.runBlocking
 class OnboardingActivity : AppCompatActivity(), SlideToActView.OnSlideToActAnimationEventListener {
 
     private lateinit var binding: ActivityOnboardingBinding
-    private lateinit var sharedPrefs: SharedPreferences
-
+    private lateinit var sharedPreferencesManager: SharedPreferencesManager
     private lateinit var bgSoundManager: MediaPlayerManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedPrefs = getSharedPreferences("com.waans.marioworld", MODE_PRIVATE)
-        if(!sharedPrefs.contains("isMute")){
-            val ed = sharedPrefs.edit()
-            ed.putBoolean("isMute", false)
-            ed.apply()
+        sharedPreferencesManager = SharedPreferencesManager(applicationContext)
+        if (!sharedPreferencesManager.getIsMute()) {
+            sharedPreferencesManager.setIsMute(false)
         }
     }
 
@@ -43,8 +41,8 @@ class OnboardingActivity : AppCompatActivity(), SlideToActView.OnSlideToActAnima
         bgSoundManager.stopSound()
     }
 
-    private fun initView(){
-        with(binding){
+    private fun initView() {
+        with(binding) {
             btnSlider.onSlideToActAnimationEventListener = this@OnboardingActivity
 
             btnSound.setOnClickListener {
@@ -55,14 +53,9 @@ class OnboardingActivity : AppCompatActivity(), SlideToActView.OnSlideToActAnima
                 Configuration.ORIENTATION_PORTRAIT -> {
                     marioTitle.layoutParams.width = 800
                 }
-                Configuration.ORIENTATION_LANDSCAPE -> {
+                Configuration.ORIENTATION_LANDSCAPE, Configuration.ORIENTATION_SQUARE -> {
                     marioTitle.layoutParams.width = 600
                 }
-
-                Configuration.ORIENTATION_SQUARE -> {
-                    marioTitle.layoutParams.width = 600
-                }
-
                 Configuration.ORIENTATION_UNDEFINED -> {
                     marioTitle.layoutParams.width = 800
                 }
@@ -70,31 +63,28 @@ class OnboardingActivity : AppCompatActivity(), SlideToActView.OnSlideToActAnima
         }
     }
 
-    private fun setSoundStatus(isChangeStatus: Boolean = false){
-        var currentStatus = sharedPrefs.getBoolean("isMute", false)
-        if(isChangeStatus) {
-            sharedPrefs.edit()
-                .putBoolean("isMute", !currentStatus)
-                .apply()
+    private fun setSoundStatus(isChangeStatus: Boolean = false) {
+        var currentStatus = sharedPreferencesManager.getIsMute()
+        if (isChangeStatus) {
+            sharedPreferencesManager.setIsMute(!currentStatus)
         }
 
-        currentStatus = sharedPrefs.getBoolean("isMute", false)
-        if(currentStatus){
+        currentStatus = sharedPreferencesManager.getIsMute()
+        if (currentStatus) {
             binding.btnSound.setImageResource(com.waans.mario_world.core.R.drawable.ic_volume_off)
-        }else{
+        } else {
             binding.btnSound.setImageResource(com.waans.mario_world.core.R.drawable.ic_volume_up)
         }
 
         isPlayBgSound()
     }
 
-    private fun isPlayBgSound(){
-        val isMute = sharedPrefs.getBoolean("isMute", false)
+    private fun isPlayBgSound() {
+        val isMute = sharedPreferencesManager.getIsMute()
 
-        if(!isMute) {
-            //set bg sound
+        if (!isMute) {
             bgSoundManager.startSound(com.waans.mario_world.core.R.raw.bgm_opening, true)
-        }else{
+        } else {
             bgSoundManager.stopSound()
         }
     }

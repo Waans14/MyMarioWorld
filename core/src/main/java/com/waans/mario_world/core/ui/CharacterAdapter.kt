@@ -47,7 +47,6 @@ class CharacterDiffCallback(oldCharacterList: List<Character>, newCharacterList:
         return oldCharacter.name.equals(newCharacter.name) && oldCharacter.isFavorite == newCharacter.isFavorite
     }
 
-    @Nullable
     override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
         return super.getChangePayload(oldItemPosition, newItemPosition)
     }

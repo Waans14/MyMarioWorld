@@ -1,6 +1,5 @@
 package com.waans.mario_world.core.data.source.local.entity
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -8,7 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "characters")
 data class CharacterEntity(
     @PrimaryKey
-    @NonNull
     @ColumnInfo(name = "name")
     val name: String,
 

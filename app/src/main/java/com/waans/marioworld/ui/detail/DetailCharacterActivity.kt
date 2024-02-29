@@ -3,7 +3,6 @@ package com.waans.marioworld.ui.detail
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
@@ -14,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.waans.mario_world.core.data.source.local.DummyDataSource.characterSoundLibrary
 import com.waans.mario_world.core.domain.model.Character
 import com.waans.mario_world.core.utils.MediaPlayerManager
+import com.waans.mario_world.core.utils.SharedPreferencesManager
 import com.waans.mario_world.core.utils.Utils.imageURL
 import com.waans.marioworld.databinding.ActivityDetailCharacterBinding
 import kotlinx.coroutines.delay
@@ -24,7 +24,7 @@ class DetailCharacterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailCharacterBinding
 
-    private lateinit var sharedPrefs: SharedPreferences
+    private lateinit var sharedPreferencesManager: SharedPreferencesManager
     private lateinit var bgSoundManager: MediaPlayerManager
 
     private val detailCharacterViewModel: DetailCharacterViewModel by viewModel()
@@ -44,7 +44,7 @@ class DetailCharacterActivity : AppCompatActivity() {
         binding = ActivityDetailCharacterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedPrefs = getSharedPreferences("com.waans.marioworld", MODE_PRIVATE)
+        sharedPreferencesManager = SharedPreferencesManager(applicationContext)
         bgSoundManager = MediaPlayerManager(applicationContext)
     }
 
@@ -145,14 +145,12 @@ class DetailCharacterActivity : AppCompatActivity() {
     }
 
     private fun setSoundStatus(isChangeStatus: Boolean = false){
-        var currentStatus = sharedPrefs.getBoolean("isMute", false)
+        var currentStatus = sharedPreferencesManager.getIsMute()
         if(isChangeStatus) {
-            sharedPrefs.edit()
-                .putBoolean("isMute", !currentStatus)
-                .apply()
+            sharedPreferencesManager.setIsMute(!currentStatus)
         }
 
-        currentStatus = sharedPrefs.getBoolean("isMute", false)
+        currentStatus = sharedPreferencesManager.getIsMute()
         if(currentStatus){
             binding.btnSound.setImageResource(com.waans.mario_world.core.R.drawable.ic_volume_off)
         }else{
@@ -163,7 +161,7 @@ class DetailCharacterActivity : AppCompatActivity() {
     }
 
     private fun isPlayBgSound(){
-        val isMute = sharedPrefs.getBoolean("isMute", false)
+        val isMute = sharedPreferencesManager.getIsMute()
 
         if(!isMute) {
             //set bg sound
