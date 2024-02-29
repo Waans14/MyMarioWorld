@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="black">#FF000000</color>
     <color name="dark_grey">#292929</color>
     <color name="grey">#898989</color>
@@ -12,5 +12,5 @@
     <color name="mario_red_dark">#8B0416</color>
 
     <color name="bg_green">#3DDC4D</color>
-    <color name="bg_orange">#f89b29</color>
+    <color name="bg_orange" tools:keep="@color/bg_orange">#f89b29</color>
 </resources>

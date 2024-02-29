@@ -6,7 +6,8 @@
     android:background="@drawable/bg_gradient_red"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.detail.DetailCharacterActivity">
+    tools:context=".ui.detail.DetailCharacterActivity"
+    tools:ignore="Overdraw">
 
     <include
         android:id="@+id/iv_circle_ring"

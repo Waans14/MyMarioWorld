@@ -9,7 +9,7 @@
         <item name="colorSecondary">#FFC107</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">#E91E63</item>
+        <item name="android:statusBarColor" tools:targetApi="l" tools:ignore="ObsoleteSdkInt">#E91E63</item>
     </style>
 
     <style name="SlideToActView.GetStarted">
